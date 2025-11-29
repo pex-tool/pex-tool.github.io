@@ -44,7 +44,7 @@ for whl_path in ${ROOT}/packaging/simple-index/psutil/*.whl; do
     metadata_sha256="$(sha256sum "${ROOT}/packaging/simple-index/psutil/${whl}.metadata" | cut -d' ' -f1)"
 
     cat <<EOF >> "${ROOT}/packaging/simple-index/psutil/index.html"
-        <a href="${whl}#sha256=${sha256}" data-core-metadata="sha256=${metadata_sha256}">${whl}</a>
+        <a href="${whl}#sha256=${sha256}" data-core-metadata="sha256=${metadata_sha256}">${whl}</a><br>
 EOF
 done
 
