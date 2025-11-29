@@ -19,8 +19,7 @@ for arch in amd64 arm64; do
         apk add gcc python3-dev musl-dev linux-headers patchelf && \
         python -mvenv .venv && .venv/bin/pip install auditwheel pex && \
         .venv/bin/pex3 wheel -d dist-temp psutil && \
-        .venv/bin/auditwheel repair dist-temp/*.whl && \
-        mv dist-temp/*.whl dist/
+        .venv/bin/auditwheel repair -w /dist dist-temp/*.whl
     ' && \
     sudo chown -R "${USER}:${USER}" "${ROOT}/packaging/simple-index/psutil"
 done
